@@ -12,7 +12,7 @@ RUN useradd -rm -d /home/$USERNAME -s /bin/bash -g root -G sudo -u 1001 $USERNAM
 
 # 3. Setup SSH directory dan masukkan Public Key (Hardened Security)
 RUN mkdir -p /home/$USERNAME/.ssh && chmod 700 /home/$USERNAME/.ssh
-COPY id_rsa.pub /home/$USERNAME/.ssh/authorized_keys
+COPY id_ed25519.pub /home/$USERNAME/.ssh/authorized_keys
 RUN chmod 600 /home/$USERNAME/.ssh/authorized_keys && \
     chown -R $USERNAME:root /home/$USERNAME/.ssh
 
